@@ -3,7 +3,6 @@ import { dev } from "$app/environment";
 import { page } from "$app/state";
 import Divider from "$common/Divider.svelte";
 import SegmentedControl from "$common/SegmentedControl.svelte";
-import SwitchProfile from "$pages/dashboard/SwitchProfile.svelte";
 import Icon from "@iconify/svelte";
 
 let { nav = [], children } = $props();
@@ -53,9 +52,6 @@ function updateHref(path) {
 {#if windowWidth > 978}
 	<nav>
 		{@render children?.()}
-		{#if page.url.pathname.startsWith("/dashboard")}
-			<SwitchProfile data={{ ...page.data.userData, companies: companies.companies }} />
-		{/if}
 
 		{#each nav as item}
 			{#if item.name === "divider"}

@@ -305,9 +305,13 @@ label {
 		}
 	}
 	.input-box {
+		background-color: var(--bg-100);
 		.icon {
 			aspect-ratio: 1;
 			padding-right: 6px;
+		}
+		input {
+			border-radius: 0;
 		}
 	}
 	.password-footer {

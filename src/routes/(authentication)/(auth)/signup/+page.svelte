@@ -17,6 +17,7 @@ async function signUp() {
 
 	//to do check if email is already sign up.
 	//if not verified yet, show modal to verify email
+	console.log(email.value(), password.getValue());
 
 	const { data, error } = await supabase.auth.signUp({
 		email: email.value(),

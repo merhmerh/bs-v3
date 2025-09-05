@@ -1,9 +1,9 @@
 <script>
-import ComboBox from "$common/ComboBox.svelte";
 import Icon from "@iconify/svelte";
 import { prioritizedCountries } from "$data/country_code.js";
 import { parsePhoneNumberWithError } from "libphonenumber-js";
 import { onMount } from "svelte";
+import ComboBox2 from "$common/ComboBox2.svelte";
 
 let {
 	phone = $bindable(),
@@ -64,7 +64,7 @@ export function clear() {
 
 <div class="phone-input-container">
 	<div class="input-box clear dial-code-input-box" class:error>
-		<ComboBox
+		<ComboBox2
 			bind:this={dial_combo_box}
 			bind:selectedValue={dial_code}
 			options={countries_code}

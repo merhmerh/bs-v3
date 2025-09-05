@@ -1,9 +1,11 @@
 <script>
 import { page } from "$app/state";
-import { theme } from "$common/theme.store.js";
+import { getThemeState } from "$comp/StateComponent/Preferences/ThemeState.svelte.js";
 import { onMount } from "svelte";
 
 let snowCount = $state(200);
+const t = getThemeState();
+const scheme = $derived(t.theme.scheme);
 
 let isSignUp = $derived.by(() => {
 	return page.url.pathname == "/signup";
@@ -24,7 +26,7 @@ onMount(() => {
 
 <svelte:window onresize={setSnowCount} />
 
-<div class="snowContainer {$theme}" class:signUpSnow={isSignUp}>
+<div class="snowContainer {scheme}" class:signUpSnow={isSignUp}>
 	<div class="snows">
 		{#key snowCount}
 			{#each Array(snowCount) as _}
@@ -33,8 +35,8 @@ onMount(() => {
 		{/key}
 	</div>
 	<div class="backgrounds">
-		<div class="bg bg1" class:show={$theme == "light"}></div>
-		<div class="bg bg2" class:show={$theme == "dark"}></div>
+		<div class="bg bg1" class:show={scheme == "light"}></div>
+		<div class="bg bg2" class:show={scheme == "dark"}></div>
 	</div>
 </div>
 

@@ -5,12 +5,16 @@ import Segment from "$comp/pages/settings/Segment.svelte";
 import StandardField from "$comp/pages/settings/StandardField.svelte";
 import AsyncButton from "$common/AsyncButton.svelte";
 import { invalidateAll } from "$app/navigation";
-import { toasts } from "$common/toast.store.js";
 import { dev } from "$app/environment";
 import { signOut } from "$fn/supabase.client.js";
+import { getToastState } from "$comp/StateComponent/Toasts/ToastState.svelte.js";
+
 let { data } = $props();
 const { supabase } = data;
 const { userData, user, hasPassword } = $state(data);
+
+const toast = getToastState();
+
 let displayNameData = $state({ value: "", error: null, show: false });
 let usernameData = $state({ value: "", error: null, show: false });
 let googleProvider = $state(user.app_metadata.providers.includes("google"));
@@ -40,7 +44,7 @@ async function updateDisplayName() {
 		displayNameData.error = result.error.message;
 		return;
 	}
-	toasts.add({ message: "Display name updated successfully", type: "success" });
+	toast.success("Display name updated successfully");
 	userData.display_name = newDisplayName;
 	await invalidateAll();
 	return closeFields();
@@ -61,7 +65,7 @@ async function updateUsername() {
 		usernameData.error = result.error.message;
 		return;
 	}
-	toasts.add({ message: "Username updated successfully", type: "success" });
+	toast.success("Username updated successfully");
 	userData.username = newUsername;
 	await invalidateAll();
 	return closeFields();
@@ -254,17 +258,21 @@ function closeOtherEditableFields(e) {
 			This will log you out of BuiltSearch on all devices. If you believe your account has been
 			compromised, we recommend changing your password.
 		</p>
-		<button
-			class="sign-out-everywhere small text"
-			onclick={async () => {
-				const result = confirm("Are you sure you want to sign out of BuiltSearch on all devices?");
-				if (!result) return;
+		<div>
+			<button
+				class="warning outlined smaller"
+				onclick={async () => {
+					const result = confirm(
+						"Are you sure you want to sign out of BuiltSearch on all devices?",
+					);
+					if (!result) return;
 
-				await signOut();
-				location.reload();
-			}}>
-			Sign Out Everywhere
-		</button>
+					await signOut();
+					location.reload();
+				}}>
+				Sign Out Everywhere
+			</button>
+		</div>
 	</StandardField>
 </Segment>
 
@@ -275,7 +283,7 @@ function closeOtherEditableFields(e) {
 <style lang="scss">
 button.sign-out-everywhere {
 	color: var(--red);
-	padding: 2px 0.5rem;
+	width: fit-content;
 	border: 1px solid var(--red);
 	background-color: color-mix(in srgb, var(--red), 80% transparent);
 }

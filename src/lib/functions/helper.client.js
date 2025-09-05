@@ -1,6 +1,5 @@
 import { genId, timeout } from "./helper.js";
 import { getStoragePublicUrl } from "./supabase.client.js";
-import { toasts } from "$common/toast.store.js";
 
 export function parseLinksFromText(text) {
 	const urlRegex = /\b((https?:\/\/)?(www\.)?([a-z0-9-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?)\b/g;
@@ -221,11 +220,11 @@ export function copyToClipboard(
 ) {
 	if (navigator.clipboard) {
 		navigator.clipboard.writeText(str);
-		toasts.add({ message: successMessage, type: "success", duration: 5000 });
+		// toasts.add({ message: successMessage, type: "success", duration: 5000 });
 		return;
 	} else {
 		const message = fallbackMessage || str;
-		toasts.add({ message: message, type: "info", duration: 7000 });
+		// toasts.add({ message: message, type: "info", duration: 7000 });
 	}
 }
 

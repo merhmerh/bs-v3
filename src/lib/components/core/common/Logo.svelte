@@ -1,9 +1,9 @@
 <script>
 import AppIcon from "$common/AppIcon.svelte";
+import { getThemeState } from "$comp/StateComponent/Preferences/ThemeState.svelte.js";
 
 import logo_light from "$lib/assets/builtsearch_logo.svg";
 import logo_dark from "$lib/assets/builtsearch_logo_dark.svg";
-import { getThemeState } from "$core/Preferences/ThemeState.svelte.js";
 /**
  * @typedef {Object} Props
  * @property {string} [glyph]

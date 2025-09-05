@@ -2,18 +2,21 @@
 import { dev } from "$app/environment";
 import { invalidateAll } from "$app/navigation";
 import { page } from "$app/state";
-import { theme } from "$common/theme.store.js";
+import { getThemeState } from "$comp/StateComponent/Preferences/ThemeState.svelte.js";
 import { PUBLIC_GOOGLE_OAUTH_CLIENT_ID } from "$env/static/public";
 import { onMount } from "svelte";
 
-let gsi_container = $state();
 let mounted = false;
 let GSI_ready = $state(false);
+const t = getThemeState();
 const nonce = btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(32))));
 const encoder = new TextEncoder();
 const encodedNonce = encoder.encode(nonce);
+let gsiTheme = $state(null);
 
 onMount(() => {
+	const scheme = t.theme.scheme == "dark" ? "filled_black" : "filled_white";
+	gsiTheme = scheme;
 	window.handleSignInWithGoogle = handleSignInWithGoogle;
 	mounted = true;
 	initGoogleSignIn();
@@ -51,13 +54,27 @@ async function initGoogleSignIn() {
 
 	const el = document.querySelector(".googleSignIn");
 
-	const width = gsi_container.getBoundingClientRect().width;
 	google.accounts.id.renderButton(el, {
-		theme: $theme == "dark" ? "filled_black" : "filled_white",
+		theme: t.theme.scheme == "dark" ? "filled_black" : "filled_white",
 		text: "continue_with",
-		width: width,
+		width: 350,
 	});
 }
+
+$effect(() => {
+	t.theme.scheme;
+	if (!GSI_ready || !mounted) return;
+
+	const el = document.querySelector(".googleSignIn");
+	if (el) {
+		el.innerHTML = "";
+		google.accounts.id.renderButton(el, {
+			theme: t.theme.scheme == "dark" ? "filled_black" : "filled_white",
+			text: "continue_with",
+			width: 350,
+		});
+	}
+});
 </script>
 
 <svelte:head>
@@ -70,4 +87,10 @@ async function initGoogleSignIn() {
 		}}></script>
 </svelte:head>
 
-<div class="googleSignIn flex justify-center" bind:this={gsi_container}></div>
+<div class="googleSignIn flex justify-center"></div>
+
+<style lang="scss">
+.googleSignIn {
+	color-scheme: light;
+}
+</style>

@@ -4,7 +4,7 @@ import Logo from "$common/Logo.svelte";
 import { page } from "$app/state";
 import Apps from "$common/Apps.svelte";
 import { signOut } from "$fn/supabase.client.js";
-import Theme from "$core/Preferences/Theme.svelte";
+import Theme from "$comp/StateComponent/Preferences/Theme.svelte";
 
 let { data } = $props();
 let header = $state();
@@ -46,7 +46,7 @@ const links = [
 				</AvatarMenu>
 			{:else}
 				<a class="button outlined" href="/signin">Sign In</a>
-				<a class="button signup" href="/signup">Get Started</a>
+				<a class="button primary signup" href="/signup">Get Started</a>
 			{/if}
 		</div>
 	</div>
@@ -66,7 +66,8 @@ header {
 	z-index: 100;
 	height: var(--height, auto);
 	transition: height 0.3s;
-	background-color: var(--bg-100);
+	background-color: color-mix(in srgb, var(--bg-100), 12% transparent);
+	backdrop-filter: blur(6px);
 
 	@media screen and (max-width: 768px) {
 		&.showMenu {

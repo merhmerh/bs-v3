@@ -1,8 +1,8 @@
 <script>
-import Header from "$common/Header.svelte";
-import Theme from "$common/Theme.svelte";
 import Background from "$core/auth/Background.svelte";
+import Theme from "$comp/StateComponent/Preferences/Theme.svelte";
 import { onMount } from "svelte";
+
 /**
  * @typedef {Object} Props
  * @property {import('svelte').Snippet} [children]
@@ -17,15 +17,10 @@ onMount(() => {
 });
 </script>
 
+<div class="header">
+	<Theme />
+</div>
 {#if ready}
-	<Header background="transparent" icon={false}>
-		{#snippet content()}
-			<div class="header-menu">
-				<Theme />
-			</div>
-		{/snippet}
-	</Header>
-
 	<main>
 		<div class="content">
 			{@render children?.()}
@@ -35,10 +30,11 @@ onMount(() => {
 {/if}
 
 <style lang="scss">
-.header-menu {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
+.header {
+	position: absolute;
+	z-index: 1000;
+	top: 1rem;
+	right: 1rem;
 }
 main {
 	min-height: calc(100vh - 60px);
@@ -46,6 +42,7 @@ main {
 		padding-inline: 1rem;
 	}
 	.content {
+		padding-top: 4rem;
 		position: relative;
 		z-index: 1;
 	}

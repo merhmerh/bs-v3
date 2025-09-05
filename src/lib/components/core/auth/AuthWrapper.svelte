@@ -73,7 +73,7 @@ function updateURLParams() {
 	display: flex;
 	margin-inline: auto;
 	flex-direction: column;
-	width: min(450px, 100%);
+	width: min(400px, 100%);
 	padding-top: rem;
 
 	@media screen and (max-width: 768px) {
@@ -87,8 +87,7 @@ function updateURLParams() {
 		gap: 1rem;
 		.content {
 			h1 {
-				font-size: 1.5rem;
-				font-weight: 600;
+				font-size: 2rem;
 			}
 			span {
 				color: var(--text-soft);

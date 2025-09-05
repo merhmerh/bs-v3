@@ -61,5 +61,10 @@ async function sendVerification() {
 {/if}
 <Password bind:this={password} showForgetPassword onenter={() => signInButton.click()} />
 
-<AsyncButton primary bind:this={signInButton} --width="100%" --mt="1rem" onclick={signInWithEmail}
-	>Sign In</AsyncButton>
+<AsyncButton
+	lg
+	primary
+	bind:this={signInButton}
+	--width="100%"
+	--mt="1rem"
+	onclick={signInWithEmail}>Sign In</AsyncButton>

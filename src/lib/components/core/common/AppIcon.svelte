@@ -1,6 +1,5 @@
 <script>
 import glyphJSON from "$common/glyph.json";
-import { theme } from "$common/theme.store.js";
 
 /**
  * @typedef {Object} Props
