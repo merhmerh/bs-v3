@@ -1,0 +1,103 @@
+html[data-theme-scheme="light"] {
+	--base: #fff;
+	--contrast: #333;
+	--inverse: #000;
+
+	--mono-soft: #acacac;
+	--mono-base: hsl(180, 2%, 48%);
+	--mono-mid: #2d2d2d;
+
+	--gc: #b3b8c0;
+	--url: #4185f4;
+}
+
+html[data-theme-scheme="dark"] {
+	--base: #000;
+	--contrast: #fff;
+	--inverse: #fff;
+
+	--green: #81b539;
+
+	--c-green: #21c219;
+	--c-emerald: #3d9f88;
+	--c-purple: #975bd4;
+
+	--mono-soft: #2b3133;
+	--mono-base: #616b6b;
+	--mono-mid: #859494;
+
+	--gc: #1c283c;
+	--url: #97bbf6;
+}
+
+:root {
+	--bg-100: #ffffff;
+	--text: #344856;
+
+	--lavender: #e64fc5;
+	--green: #679a1f;
+	--orange: orange;
+	--red: #f05d46;
+
+	--primary: #4185f4;
+	--secondary: #4d535d;
+	--text-primary: #a0b2cf;
+
+	--mono-soft: #2b3133;
+	--mono-base: hsl(180, 5%, 54%);
+	--mono-mid: hsl(180, 5%, 40%);
+
+	--focus-outline: color-mix(in srgb, var(--primary), 50% #fff);
+
+	--code-block-bg: #333435;
+	--code-block-header-bg: #505152;
+	--white: #fff;
+	--c-grey: #8f9092;
+	--c-red: #de5945;
+	--c-pink: #ff6f91;
+	--c-rose: #d69c9c;
+	--c-yellow: #edae1b;
+	--c-lime: #a4d65e;
+	--c-green: #509411;
+	--c-emerald: #00644d;
+	--c-teal: #2ed8b6;
+	--c-cyan: #00b6db;
+	--c-blue: #427cd8;
+	--c-violet: #c99af7;
+	--c-purple: #663399;
+}
+
+html[data-theme="Default"][data-theme-scheme="light"] {
+	--bg-100: #ffffff;
+	--bg-200: #f4f6f6;
+	--text: #344856;
+
+	--primary: #4185f4;
+	--secondary: #6191de;
+	--focus-outline: #98dbff; //focus visible outline
+	--text-primary: #42464a;
+	--primary-contrast: #fff; //color of text on primary button
+
+	--mono-soft: #acacac;
+	--mono-base: hsl(180, 2%, 48%);
+	--mono-mid: #2d2d2d;
+
+	--code-block-bg: hsl(218, 50%, 97%);
+	--code-block-header-bg: hsl(218, 15%, 80%);
+}
+
+html[data-theme="Default"][data-theme-scheme="dark"] {
+	--bg-100: #1c1e22;
+	--bg-200: #282c34;
+
+	--text: #c9d7e0;
+
+	--primary: #4692d1;
+	--secondary: #435880;
+	--focus-outline: #98dbff; //focus visible outline
+	--text-primary: #c9cccf;
+	--primary-contrast: #fff; //color of text on primary button
+
+	--code-block-bg: #333435;
+	--code-block-header-bg: #505152;
+}

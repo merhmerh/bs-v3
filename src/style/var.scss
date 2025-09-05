@@ -1,0 +1,23 @@
+@mixin text-overflow {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1; // Change this to the number of lines you want to clamp
+	-webkit-box-orient: vertical;
+	white-space: nowrap;
+}
+
+@mixin text-overflow-1 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@mixin text-overflow-2 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2; // Change this to the number of lines you want to clamp
+	-webkit-box-orient: vertical;
+	white-space: nowrap;
+}

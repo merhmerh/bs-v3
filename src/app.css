@@ -1,0 +1,30 @@
+@tailwind utilities;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+.text-soft {
+	color: var(--text-soft);
+}
+
+.text-light {
+	color: var(--text-light);
+}
+
+.text-alt {
+	color: var(--text-alt);
+}
+
+.text-base {
+	color: var(--text-base);
+}
+
+.text-dark {
+	color: var(--text-dark);
+}

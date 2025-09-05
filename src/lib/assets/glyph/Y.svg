@@ -1,0 +1,18 @@
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="18" cy="28" r="2.5" transform="rotate(90 18 28)" fill="#4185F4"/>
+<circle cx="32.5" cy="18" r="2" transform="rotate(90 32.5 18)" fill="#4185F4"/>
+<circle cx="3.5" cy="18" r="2" transform="rotate(90 3.5 18)" fill="#4185F4"/>
+<circle cx="10.5" cy="32.5" r="2" transform="rotate(90 10.5 32.5)" fill="#4185F4"/>
+<circle cx="10.5" cy="3.5" r="2" transform="rotate(90 10.5 3.5)" fill="#4185F4"/>
+<circle cx="25.5" cy="32.5" r="2" transform="rotate(90 25.5 32.5)" fill="#4185F4"/>
+<circle cx="25.5" cy="3.5" r="2" transform="rotate(90 25.5 3.5)" fill="#4185F4"/>
+<circle cx="18" cy="18" r="2.5" transform="rotate(90 18 18)" fill="#4185F4"/>
+<circle cx="18" cy="8" r="2.5" transform="rotate(90 18 8)" fill="#4185F4"/>
+<circle cx="27" cy="13" r="2.5" transform="rotate(90 27 13)" fill="#4185F4"/>
+<circle cx="27" cy="23" r="2.5" transform="rotate(90 27 23)" fill="#4185F4"/>
+<circle cx="9" cy="13" r="2.5" transform="rotate(90 9 13)" fill="#4185F4"/>
+<circle cx="9" cy="23" r="2.5" transform="rotate(90 9 23)" fill="#4185F4"/>
+<path d="M19.3415 19L17.8415 16.4019C22.2386 15.0179 22.2386 15.0179 25.6357 11.9019L27.1357 14.5C22.7386 15.884 22.7386 15.884 19.3415 19Z" fill="#4185F4"/>
+<path d="M16.6107 19L18.1106 16.4019C13.7135 15.0179 13.7135 15.0179 10.3164 11.9019L8.81641 14.5C13.2135 15.884 13.2135 15.884 16.6107 19Z" fill="#4185F4"/>
+<path d="M16.5 18.5L19.5 18.5C18.5 23 18.5 23 19.5 27.5L16.5 27.5C17.5 23 17.5 23 16.5 18.5Z" fill="#4185F4"/>
+</svg>
