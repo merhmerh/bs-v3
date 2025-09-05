@@ -10,11 +10,13 @@ const { supabase } = data;
 let email = $state();
 let sentResetPasswordLink = $state(false);
 let errorMessage = $state(null);
+let submitButton = $state(null);
 
 async function resetPassword() {
 	if (!email.validate()) return;
 
-	const emailValue = email.getValue();
+	const emailValue = email.value();
+
 	const { data, error } = await supabase.auth.resetPasswordForEmail(emailValue, {
 		redirectTo: page.url.origin + "/reset-password",
 	});
@@ -24,20 +26,20 @@ async function resetPassword() {
 </script>
 
 <AuthCommonWrapper>
-	<div slot="page-header">
+	{#snippet header()}
 		<h1>Forgot your Password</h1>
 		<span>Reset your password</span>
-	</div>
+	{/snippet}
 
-	<div slot="page-content" class="content">
-		<p class="note">Enter your email and we will send you a link to reset your password.</p>
+	{#snippet content()}
+		<p class="note m-0">Enter your email and we will send you a link to reset your password.</p>
 		{#if errorMessage}
 			<div class="info-box warning" style="margin-bottom:-1rem;">
 				You need to be signed in to update your password. If you have forgotten your password, click <a
 					href="/forgot-password">here</a> to continue.
 			</div>
 		{/if}
-		<Email bind:this={email} />
+		<Email bind:this={email} onEnter={() => submitButton.handleButtonClick()} />
 		{#if sentResetPasswordLink}
 			<button class="sent" disabled>
 				<div class="icon">
@@ -46,16 +48,16 @@ async function resetPassword() {
 				Password reset link sent
 			</button>
 		{:else}
-			<AsyncButton --width="100%" onclick={resetPassword}>Send</AsyncButton>
+			<AsyncButton primary lg --width="100%" bind:this={submitButton} onclick={resetPassword}
+				>Send</AsyncButton>
 		{/if}
-	</div>
+	{/snippet}
 
-	<!-- @migration-task: migrate this slot by hand, `page-footer` is an invalid identifier -->
-	<div slot="page-footer">
+	{#snippet footer()}
 		<p class="my-0">
 			Already have an account? <a class="underline" href="/signin">Sign In</a>
 		</p>
-	</div>
+	{/snippet}
 </AuthCommonWrapper>
 
 <style lang="scss">

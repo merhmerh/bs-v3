@@ -281,8 +281,7 @@ export function setError(errorMessage) {
 			<span>Password</span>
 			{#if showForgetPassword}
 				<!-- svelte-ignore a11y_positive_tabindex -->
-				<a tabindex="1" target="_blank" href="https://builtsearch.com/forgot-password"
-					>Forgot password?</a>
+				<a tabindex="1" href="/forgot-password">Forgot password?</a>
 			{/if}
 		</div>
 	{/if}

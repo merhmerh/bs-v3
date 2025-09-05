@@ -1,6 +1,6 @@
-<!-- @migration-task Error while migrating Svelte code: This migration would change the name of a slot making the component unusable -->
 <script>
 import AppIcon from "$common/AppIcon.svelte";
+let { header, content, footer } = $props();
 </script>
 
 <div class="page-wrapper">
@@ -9,16 +9,19 @@ import AppIcon from "$common/AppIcon.svelte";
 			<AppIcon --height="48px" />
 		</a>
 		<div class="page-header-content">
-			<slot name="page-header" />
+			{@render header?.()}
+			<!-- <slot name="page-header" /> -->
 		</div>
 	</div>
 
 	<div class="content">
-		<slot name="page-content" />
+		{@render content?.()}
+		<!-- <slot name="page-content" /> -->
 	</div>
 
 	<div class="page-footer">
-		<slot name="page-footer" />
+		{@render footer?.()}
+		<!-- <slot name="page-footer" /> -->
 	</div>
 </div>
 
@@ -42,8 +45,7 @@ import AppIcon from "$common/AppIcon.svelte";
 		gap: 1rem;
 		.page-header-content {
 			& :global(h1) {
-				font-size: 1.5rem;
-				font-weight: 600;
+				font-size: 1.75rem;
 			}
 			& :global(span) {
 				color: var(--text-soft);

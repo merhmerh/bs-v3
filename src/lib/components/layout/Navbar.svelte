@@ -42,7 +42,7 @@ const links = [
 					<a class="menu-item" href="/terms">Terms</a>
 					<a class="menu-item" href="/privacy">Privacy</a>
 					<div class="divider"></div>
-					<button class="menu-item none" onclick={signOut}> Sign Out</button>
+					<button class="menu-item" onclick={signOut}> Sign Out</button>
 				</AvatarMenu>
 			{:else}
 				<a class="button outlined" href="/signin">Sign In</a>
@@ -96,6 +96,7 @@ header {
 				border-radius: 0.5rem;
 				flex-shrink: 0;
 				border-radius: 0;
+				border: 0;
 				&:hover {
 					background-color: var(--bg-200);
 				}

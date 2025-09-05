@@ -59,7 +59,10 @@ async function sendVerification() {
 		Resend Email Verification Link
 	</AsyncButton>
 {/if}
-<Password bind:this={password} showForgetPassword onenter={() => signInButton.click()} />
+<Password
+	bind:this={password}
+	showForgetPassword
+	onenter={() => signInButton.handleButtonClick()} />
 
 <AsyncButton
 	lg

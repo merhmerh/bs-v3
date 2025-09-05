@@ -30,30 +30,30 @@ async function updatePassword() {
 </script>
 
 <AuthCommonWrapper>
-	<!-- @migration-task: migrate this slot by hand, `page-header` is an invalid identifier -->
-	<div slot="page-header">
+	{#snippet header()}
 		<h1>Reset your Password</h1>
 		<span>Type in a new secure password.</span>
-	</div>
+	{/snippet}
 
-	<!-- @migration-task: migrate this slot by hand, `page-content` is an invalid identifier -->
-	<div slot="page-content" class="content">
-		{#if errorMessage}
-			<div class="info-box warning" style="margin-bottom:-1rem;">
-				{errorMessage}
-			</div>
-		{/if}
-		<Password bind:this={password} validatePassword />
+	{#snippet content()}
+		<div class="content">
+			{#if errorMessage}
+				<div class="info-box warning" style="margin-bottom:-1rem;">
+					{errorMessage}
+				</div>
+			{/if}
+			<Password bind:this={password} validatePassword />
 
-		<AsyncButton primary --width="100%" onclick={updatePassword}>Save New Password</AsyncButton>
-	</div>
+			<AsyncButton primary lg --width="100%" onclick={updatePassword}
+				>Save New Password</AsyncButton>
+		</div>
+	{/snippet}
 
-	<!-- @migration-task: migrate this slot by hand, `page-footer` is an invalid identifier -->
-	<div slot="page-footer">
+	{#snippet footer()}
 		<p class="my-0">
 			Already have an account? <a class="underline" href="/signin">Sign In</a>
 		</p>
-	</div>
+	{/snippet}
 </AuthCommonWrapper>
 
 <style lang="scss">

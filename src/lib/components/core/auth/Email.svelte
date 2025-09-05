@@ -1,7 +1,10 @@
 <script>
+let { onEnter = () => {} } = $props();
+
 let emailValue = $state("");
 let emailError = $state(null);
 let showError = true;
+
 export function value() {
 	return emailValue;
 }
@@ -40,6 +43,11 @@ export function setError(errorMessage) {
 		required
 		placeholder="you@email.com"
 		oninput={() => (emailError = null)}
+		onkeydown={(e) => {
+			if (e.key == "Enter") {
+				onEnter();
+			}
+		}}
 		bind:value={emailValue}
 		class:error={emailError} />
 	{#if showError && emailError !== null}
